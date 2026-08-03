@@ -1,0 +1,36 @@
+---
+import { company } from '../data/site.js';
+import { images, img } from '../data/images.js';
+import Button from './Button.astro';
+---
+
+<section class="py-8">
+  <div class="container-x">
+    <div class="reveal relative overflow-hidden rounded-[2rem] bg-forest-800 px-8 py-14 md:px-16 md:py-20 shadow-2xl shadow-forest-900/25">
+      <img
+        src={img(images.ctaBackdrop, { w: 1600, h: 700, q: 60 })}
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+        class="absolute inset-0 w-full h-full object-cover opacity-20"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-forest-900/90 via-forest-800/80 to-forest-700/70"></div>
+
+      <div class="relative max-w-3xl">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-800 text-white leading-[1.1]">
+          Ready for a cleaner, greener, better-run facility?
+        </h2>
+        <p class="mt-5 text-lg text-sand-100/85 max-w-2xl leading-relaxed">
+          Tell us about your site and we'll put together a tailored scope and a no-obligation
+          quote — usually within two business days.
+        </p>
+        <div class="mt-9 flex flex-wrap gap-3">
+          <Button href="#contact" variant="secondary" size="lg" icon="arrow">Get a Free Quote</Button>
+          <Button href={company.phoneHref} variant="white" size="lg" icon="phone">
+            Call {company.phone}
+          </Button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

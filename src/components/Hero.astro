@@ -1,0 +1,94 @@
+---
+import { company } from '../data/site.js';
+import { images, img } from '../data/images.js';
+import Button from './Button.astro';
+import Icon from './Icon.astro';
+
+const trust = ['Fully insured', 'Police-checked teams', 'Eco-certified', 'ISO-aligned'];
+---
+
+<section class="relative overflow-hidden bg-hero-grad pt-28 md:pt-36 pb-16 md:pb-24">
+  <!-- decorative blobs -->
+  <div class="pointer-events-none absolute -top-24 -right-24 w-[32rem] h-[32rem] rounded-full bg-lime-accent-400/15 blur-3xl"></div>
+  <div class="pointer-events-none absolute -bottom-32 -left-24 w-[28rem] h-[28rem] rounded-full bg-forest-400/10 blur-3xl"></div>
+
+  <div class="container-x relative">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <!-- Copy -->
+      <div class="reveal">
+        <span class="eyebrow">Integrated Facility Services · Australia-wide</span>
+        <h1 class="mt-5 text-4xl sm:text-5xl lg:text-[3.5rem] leading-[1.05] font-800 text-forest-900">
+          A cleaner, greener,
+          <span class="relative whitespace-nowrap text-forest-600">
+            better-run
+            <svg class="absolute -bottom-2 left-0 w-full" height="12" viewBox="0 0 200 12" fill="none" aria-hidden="true">
+              <path d="M2 8c40-6 156-6 196 0" stroke="#a8e063" stroke-width="4" stroke-linecap="round" />
+            </svg>
+          </span>
+          facility.
+        </h1>
+        <p class="mt-6 text-lg text-forest-800/70 max-w-xl leading-relaxed">
+          Atlas brings commercial cleaning, grounds &amp; landscaping, waste and full facilities
+          management under one trusted partner — so you get consistent standards, one point of
+          contact and total accountability.
+        </p>
+
+        <div class="mt-8 flex flex-wrap items-center gap-3">
+          <Button href="#contact" variant="primary" size="lg" icon="arrow">Get a Free Quote</Button>
+          <Button href={company.phoneHref} variant="ghost" size="lg" icon="phone">
+            Call {company.phone}
+          </Button>
+        </div>
+
+        <ul class="mt-9 flex flex-wrap gap-x-6 gap-y-2">
+          {
+            trust.map((t) => (
+              <li class="flex items-center gap-2 text-sm font-500 text-forest-700">
+                <span class="grid place-items-center w-5 h-5 rounded-full bg-forest-100 text-forest-600">
+                  <Icon name="check" class="w-3.5 h-3.5" />
+                </span>
+                {t}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <!-- Visual -->
+      <div class="reveal" data-delay="120ms">
+        <div class="relative">
+          <div class="relative rounded-[1.75rem] overflow-hidden shadow-2xl shadow-forest-900/20 ring-1 ring-forest-900/5 aspect-[4/5] sm:aspect-[5/5]">
+            <img
+              src={img(images.hero, { w: 1000, h: 1100, q: 74 })}
+              alt="Landscaped commercial grounds maintained by Atlas"
+              width="1000"
+              height="1100"
+              loading="eager"
+              fetchpriority="high"
+              class="w-full h-full object-cover"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-forest-950/30 via-transparent to-transparent"></div>
+          </div>
+
+          <!-- Floating stat card -->
+          <div class="absolute -bottom-6 -left-4 sm:-left-8 bg-white rounded-2xl shadow-xl shadow-forest-900/15 ring-1 ring-forest-900/5 p-5 w-56">
+            <div class="flex items-center gap-3">
+              <span class="grid place-items-center w-11 h-11 rounded-xl bg-forest-600 text-lime-accent-400">
+                <Icon name="leaf" class="w-6 h-6" />
+              </span>
+              <div>
+                <p class="font-display font-800 text-2xl text-forest-900 leading-none">98%</p>
+                <p class="text-xs text-forest-700/70 mt-1">Client retention</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating badge -->
+          <div class="absolute -top-4 -right-3 sm:-right-6 bg-lime-accent-400 text-forest-900 rounded-2xl shadow-lg px-4 py-3 rotate-3">
+            <p class="font-display font-800 text-sm leading-tight">One partner.<br />Every service.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

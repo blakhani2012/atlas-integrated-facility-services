@@ -1,0 +1,78 @@
+---
+import { images, img } from '../data/images.js';
+import Button from './Button.astro';
+import Icon from './Icon.astro';
+
+const highlights = [
+  'Directly employed, vetted local teams',
+  'One contract across every service line',
+  'Transparent reporting & sustainability metrics',
+];
+---
+
+<section id="about" class="py-20 md:py-28">
+  <div class="container-x">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <!-- Images -->
+      <div class="reveal relative">
+        <div class="grid grid-cols-5 grid-rows-6 gap-4 h-[26rem] sm:h-[32rem]">
+          <div class="col-span-3 row-span-6 rounded-2xl overflow-hidden shadow-xl shadow-forest-900/10 ring-1 ring-forest-900/5">
+            <img
+              src={img(images.aboutPrimary, { w: 700, h: 900 })}
+              alt="Atlas field team on a client site"
+              loading="lazy"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="col-span-2 row-span-3 rounded-2xl overflow-hidden shadow-xl shadow-forest-900/10 ring-1 ring-forest-900/5">
+            <img
+              src={img(images.aboutSecondary, { w: 500, h: 500 })}
+              alt="Grounds and landscaping maintenance"
+              loading="lazy"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="col-span-2 row-span-3 rounded-2xl bg-forest-600 text-white p-5 flex flex-col justify-center shadow-xl shadow-forest-900/15">
+            <p class="font-display font-800 text-4xl leading-none">15<span class="text-lime-accent-400">+</span></p>
+            <p class="mt-2 text-sm text-white/80 leading-snug">years keeping Australian sites running</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copy -->
+      <div class="reveal" data-delay="100ms">
+        <span class="eyebrow">About Atlas</span>
+        <h2 class="mt-4 text-3xl sm:text-4xl font-800 text-forest-900 leading-tight">
+          Facilities expertise you can count on — with the care of a local partner
+        </h2>
+        <p class="mt-5 text-forest-800/70 leading-relaxed">
+          Atlas Integrated Facility Services was built on a simple idea: businesses shouldn't have
+          to juggle a dozen contractors to keep their sites clean, safe and welcoming. We bring
+          every service under one roof, delivered by people who take genuine pride in their work.
+        </p>
+        <p class="mt-4 text-forest-800/70 leading-relaxed">
+          From a single office to a national portfolio, we tailor every scope to your building,
+          your hours and your budget — and back it with sustainability practices that help you meet
+          your ESG commitments.
+        </p>
+
+        <ul class="mt-7 space-y-3">
+          {
+            highlights.map((h) => (
+              <li class="flex items-center gap-3 text-forest-800 font-500">
+                <span class="grid place-items-center w-6 h-6 rounded-full bg-lime-accent-400 text-forest-900 shrink-0">
+                  <Icon name="check" class="w-4 h-4" />
+                </span>
+                {h}
+              </li>
+            ))
+          }
+        </ul>
+
+        <div class="mt-9">
+          <Button href="#services" variant="primary" icon="arrow">Explore our services</Button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

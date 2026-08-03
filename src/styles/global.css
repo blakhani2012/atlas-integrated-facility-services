@@ -1,0 +1,163 @@
+@import 'tailwindcss';
+
+/* ============================================================
+   Atlas Integrated Facility Services — Design System
+   Brand: Green & sustainable (forest + lime, warm neutrals)
+   ============================================================ */
+
+@theme {
+  /* Brand — forest green scale */
+  --color-forest-50: #f0f7f2;
+  --color-forest-100: #dceee2;
+  --color-forest-200: #b9dbc6;
+  --color-forest-300: #8ac0a0;
+  --color-forest-400: #57a177;
+  --color-forest-500: #2e7d4f;
+  --color-forest-600: #1b5e3a; /* primary */
+  --color-forest-700: #164c2f;
+  --color-forest-800: #123d26;
+  --color-forest-900: #0d2e1d;
+  --color-forest-950: #071c11;
+
+  /* Accent — fresh lime */
+  --color-lime-accent-300: #c6f27a;
+  --color-lime-accent-400: #a8e063;
+  --color-lime-accent-500: #8bd03f;
+  --color-lime-accent-600: #6fb01f;
+
+  /* Warm neutrals */
+  --color-sand-50: #faf8f3;
+  --color-sand-100: #f3efe6;
+  --color-sand-200: #e7e0d1;
+  --color-sand-300: #d5cab4;
+
+  /* Fonts */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Sora', 'Inter', ui-sans-serif, system-ui, sans-serif;
+
+  /* Rhythm */
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.75rem;
+
+  /* Motion */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ---------- Base ---------- */
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-forest-900);
+  background: var(--color-sand-50);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+/* Respect anchor offset for the fixed header */
+:target {
+  scroll-margin-top: 6rem;
+}
+
+/* ---------- Reusable utilities ---------- */
+.container-x {
+  width: 100%;
+  max-width: 80rem; /* 1280px */
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+@media (min-width: 768px) {
+  .container-x {
+    padding-inline: 2rem;
+  }
+}
+
+/* Eyebrow label */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-forest-500);
+}
+.eyebrow::before {
+  content: '';
+  width: 1.75rem;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--color-lime-accent-500);
+}
+
+/* Subtle grain/leaf texture background */
+.bg-hero-grad {
+  background:
+    radial-gradient(120% 120% at 85% 0%, rgba(139, 208, 63, 0.16) 0%, transparent 45%),
+    radial-gradient(100% 100% at 0% 100%, rgba(27, 94, 58, 0.10) 0%, transparent 50%),
+    linear-gradient(180deg, #ffffff 0%, var(--color-sand-50) 100%);
+}
+
+/* Fade/slide-in on scroll (progressively enhanced via JS) */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.7s var(--ease-out-soft),
+    transform 0.7s var(--ease-out-soft);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Card hover lift */
+.card-lift {
+  transition:
+    transform 0.4s var(--ease-out-soft),
+    box-shadow 0.4s var(--ease-out-soft);
+}
+.card-lift:hover {
+  transform: translateY(-6px);
+}
+
+/* Focus visibility for keyboard users */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--color-lime-accent-500);
+  outline-offset: 2px;
+  border-radius: 0.35rem;
+}

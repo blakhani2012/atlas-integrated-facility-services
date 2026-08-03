@@ -1,0 +1,25 @@
+---
+import { pillars } from '../data/site.js';
+import Icon from './Icon.astro';
+---
+
+<section class="relative -mt-2 pb-4">
+  <div class="container-x">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+      {
+        pillars.map((p, i) => (
+          <div
+            class="reveal card-lift group bg-white rounded-2xl p-6 ring-1 ring-forest-900/5 shadow-lg shadow-forest-900/5 hover:shadow-xl hover:ring-forest-200"
+            data-delay={`${i * 80}ms`}
+          >
+            <span class="grid place-items-center w-12 h-12 rounded-xl bg-forest-50 text-forest-600 group-hover:bg-forest-600 group-hover:text-lime-accent-400 transition-colors duration-300">
+              <Icon name={p.icon} class="w-6 h-6" />
+            </span>
+            <h3 class="mt-4 font-display font-700 text-lg text-forest-900">{p.title}</h3>
+            <p class="mt-2 text-sm text-forest-700/70 leading-relaxed">{p.text}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

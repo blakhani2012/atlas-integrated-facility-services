@@ -1,0 +1,202 @@
+---
+import { company, services } from '../data/site.js';
+import Icon from './Icon.astro';
+
+// To receive submissions, create a free form at https://formspree.io and paste
+// its endpoint here (or set PUBLIC_FORM_ENDPOINT in a .env file).
+const FORM_ENDPOINT = import.meta.env.PUBLIC_FORM_ENDPOINT || 'https://formspree.io/f/your-form-id';
+---
+
+<section id="contact" class="py-20 md:py-28 bg-forest-950 text-sand-100 relative overflow-hidden">
+  <div
+    class="pointer-events-none absolute inset-0 opacity-[0.06]"
+    style="background-image:radial-gradient(circle at 1px 1px,#fff 1px,transparent 0);background-size:24px 24px"
+  >
+  </div>
+  <div class="container-x relative">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16">
+      <!-- Info -->
+      <div class="reveal">
+        <span class="eyebrow" style="color:#a8e063">Get in touch</span>
+        <h2 class="mt-4 text-3xl sm:text-4xl font-800 text-white leading-tight">
+          Let's build your facility package
+        </h2>
+        <p class="mt-4 text-sand-100/70 leading-relaxed max-w-md">
+          Share a few details and our team will get back to you with a tailored, no-obligation
+          quote — usually within two business days.
+        </p>
+
+        <ul class="mt-10 space-y-5">
+          <li class="flex items-start gap-4">
+            <span class="grid place-items-center w-12 h-12 rounded-xl bg-white/5 ring-1 ring-white/10 text-lime-accent-400 shrink-0">
+              <Icon name="phone" class="w-6 h-6" />
+            </span>
+            <div>
+              <p class="text-xs uppercase tracking-wider text-sand-100/50">Call us</p>
+              <a href={company.phoneHref} class="text-lg font-600 text-white hover:text-lime-accent-400">{company.phone}</a>
+            </div>
+          </li>
+          <li class="flex items-start gap-4">
+            <span class="grid place-items-center w-12 h-12 rounded-xl bg-white/5 ring-1 ring-white/10 text-lime-accent-400 shrink-0">
+              <Icon name="mail" class="w-6 h-6" />
+            </span>
+            <div>
+              <p class="text-xs uppercase tracking-wider text-sand-100/50">Email</p>
+              <a href={company.emailHref} class="text-lg font-600 text-white hover:text-lime-accent-400">{company.email}</a>
+            </div>
+          </li>
+          <li class="flex items-start gap-4">
+            <span class="grid place-items-center w-12 h-12 rounded-xl bg-white/5 ring-1 ring-white/10 text-lime-accent-400 shrink-0">
+              <Icon name="pin" class="w-6 h-6" />
+            </span>
+            <div>
+              <p class="text-xs uppercase tracking-wider text-sand-100/50">Visit</p>
+              <p class="text-lg font-600 text-white">{company.address.line1}, {company.address.line2}</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-4">
+            <span class="grid place-items-center w-12 h-12 rounded-xl bg-white/5 ring-1 ring-white/10 text-lime-accent-400 shrink-0">
+              <Icon name="clock" class="w-6 h-6" />
+            </span>
+            <div>
+              <p class="text-xs uppercase tracking-wider text-sand-100/50">Hours</p>
+              <p class="text-lg font-600 text-white">{company.hours}</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Form -->
+      <div class="reveal" data-delay="100ms">
+        <form
+          id="quote-form"
+          class="bg-white rounded-3xl p-6 sm:p-8 shadow-2xl shadow-black/30"
+          action={FORM_ENDPOINT}
+          method="POST"
+          data-netlify="true"
+          name="quote"
+        >
+          <input type="hidden" name="form-name" value="quote" />
+          <!-- honeypot -->
+          <p class="hidden">
+            <label>Don't fill this out: <input name="bot-field" /></label>
+          </p>
+
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="sm:col-span-1">
+              <label for="name" class="block text-sm font-600 text-forest-800 mb-1.5">Name *</label>
+              <input id="name" name="name" required autocomplete="name"
+                class="w-full rounded-xl border border-sand-300 bg-sand-50 px-4 py-3 text-forest-900 placeholder:text-forest-900/30 focus:border-forest-500 focus:ring-2 focus:ring-forest-500/20 outline-none transition"
+                placeholder="Your full name" />
+            </div>
+            <div class="sm:col-span-1">
+              <label for="company" class="block text-sm font-600 text-forest-800 mb-1.5">Company</label>
+              <input id="company" name="company" autocomplete="organization"
+                class="w-full rounded-xl border border-sand-300 bg-sand-50 px-4 py-3 text-forest-900 placeholder:text-forest-900/30 focus:border-forest-500 focus:ring-2 focus:ring-forest-500/20 outline-none transition"
+                placeholder="Company name" />
+            </div>
+            <div class="sm:col-span-1">
+              <label for="email" class="block text-sm font-600 text-forest-800 mb-1.5">Email *</label>
+              <input id="email" name="email" type="email" required autocomplete="email"
+                class="w-full rounded-xl border border-sand-300 bg-sand-50 px-4 py-3 text-forest-900 placeholder:text-forest-900/30 focus:border-forest-500 focus:ring-2 focus:ring-forest-500/20 outline-none transition"
+                placeholder="you@company.com.au" />
+            </div>
+            <div class="sm:col-span-1">
+              <label for="phone" class="block text-sm font-600 text-forest-800 mb-1.5">Phone</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel"
+                class="w-full rounded-xl border border-sand-300 bg-sand-50 px-4 py-3 text-forest-900 placeholder:text-forest-900/30 focus:border-forest-500 focus:ring-2 focus:ring-forest-500/20 outline-none transition"
+                placeholder="04XX XXX XXX" />
+            </div>
+            <div class="sm:col-span-2">
+              <label for="service" class="block text-sm font-600 text-forest-800 mb-1.5">Service of interest</label>
+              <select id="service" name="service"
+                class="w-full rounded-xl border border-sand-300 bg-sand-50 px-4 py-3 text-forest-900 focus:border-forest-500 focus:ring-2 focus:ring-forest-500/20 outline-none transition">
+                <option value="">Select a service…</option>
+                {services.map((s) => <option value={s.title}>{s.title}</option>)}
+                <option value="Multiple / Full FM">Multiple / Full facilities management</option>
+              </select>
+            </div>
+            <div class="sm:col-span-2">
+              <label for="message" class="block text-sm font-600 text-forest-800 mb-1.5">Tell us about your site *</label>
+              <textarea id="message" name="message" rows="4" required
+                class="w-full rounded-xl border border-sand-300 bg-sand-50 px-4 py-3 text-forest-900 placeholder:text-forest-900/30 focus:border-forest-500 focus:ring-2 focus:ring-forest-500/20 outline-none transition resize-y"
+                placeholder="Site type, size, locations, frequency…"></textarea>
+            </div>
+          </div>
+
+          <button type="submit"
+            class="mt-5 w-full inline-flex items-center justify-center gap-2 bg-forest-600 text-white font-600 px-6 py-4 rounded-full hover:bg-forest-700 transition-colors shadow-lg shadow-forest-900/20 disabled:opacity-60">
+            <span data-btn-label>Request my free quote</span>
+            <Icon name="arrow" class="w-4 h-4" />
+          </button>
+
+          <p id="form-status" class="mt-4 text-sm text-center hidden" role="status" aria-live="polite"></p>
+          <p class="mt-3 text-xs text-center text-forest-700/50">
+            We'll only use your details to respond to your enquiry.
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('quote-form') as HTMLFormElement | null;
+  const status = document.getElementById('form-status');
+  if (form && status) {
+    const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+    const label = form.querySelector('[data-btn-label]') as HTMLElement;
+    const endpoint = form.getAttribute('action') || '';
+    const configured = !endpoint.includes('your-form-id');
+
+    const show = (msg: string, ok: boolean) => {
+      status.textContent = msg;
+      status.className = `mt-4 text-sm text-center font-500 ${ok ? 'text-forest-600' : 'text-red-600'}`;
+    };
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if ((form.querySelector('[name="bot-field"]') as HTMLInputElement)?.value) return;
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+      const data = new FormData(form);
+
+      // No backend configured yet → fall back to a pre-filled email so the
+      // button always does something useful during setup.
+      if (!configured) {
+        const body = [...data.entries()]
+          .filter(([k]) => !['form-name', 'bot-field'].includes(k))
+          .map(([k, v]) => `${k}: ${v}`)
+          .join('\n');
+        window.location.href = `mailto:${'hello@atlasintegrated.com.au'}?subject=${encodeURIComponent(
+          'Website quote request'
+        )}&body=${encodeURIComponent(body)}`;
+        show('Opening your email app… (Tip: connect Formspree or Netlify Forms to receive these automatically.)', true);
+        return;
+      }
+
+      btn.disabled = true;
+      label.textContent = 'Sending…';
+      try {
+        const res = await fetch(endpoint, {
+          method: 'POST',
+          body: data,
+          headers: { Accept: 'application/json' },
+        });
+        if (res.ok) {
+          form.reset();
+          show("Thanks! We've received your request and will be in touch shortly.", true);
+          label.textContent = 'Request sent ✓';
+        } else {
+          throw new Error('Bad response');
+        }
+      } catch {
+        show('Something went wrong. Please call us or email directly.', false);
+        btn.disabled = false;
+        label.textContent = 'Request my free quote';
+      }
+    });
+  }
+</script>

@@ -1,0 +1,66 @@
+---
+import { stats } from '../data/site.js';
+---
+
+<section class="relative py-16 md:py-20 bg-forest-700 overflow-hidden">
+  <div
+    class="pointer-events-none absolute inset-0 opacity-[0.08]"
+    style="background-image:radial-gradient(circle at 1px 1px,#fff 1px,transparent 0);background-size:22px 22px"
+  >
+  </div>
+  <div class="container-x relative">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 text-center">
+      {
+        stats.map((s, i) => (
+          <div class="reveal" data-delay={`${i * 80}ms`}>
+            <p
+              class="font-display font-800 text-4xl sm:text-5xl text-white"
+              data-count={s.value.replace(/[^0-9]/g, '')}
+              data-suffix={s.suffix}
+              data-raw={s.value}
+            >
+              {s.value}
+              {s.suffix}
+            </p>
+            <p class="mt-2 text-sm text-lime-accent-300/90 font-500 max-w-[14rem] mx-auto leading-snug">
+              {s.label}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  const nums = document.querySelectorAll<HTMLElement>('[data-count]');
+  const animate = (el: HTMLElement) => {
+    const target = parseInt(el.dataset.count || '0', 10);
+    const raw = el.dataset.raw || '';
+    const suffix = el.dataset.suffix || '';
+    if (!target || /\D/.test(raw.replace(suffix, ''))) return; // skip non-numeric like 24/7
+    const dur = 1400;
+    const start = performance.now();
+    const step = (now: number) => {
+      const p = Math.min((now - start) / dur, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased).toLocaleString() + suffix;
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            animate(e.target as HTMLElement);
+            io.unobserve(e.target);
+          }
+        }
+      },
+      { threshold: 0.6 }
+    );
+    nums.forEach((n) => io.observe(n));
+  }
+</script>

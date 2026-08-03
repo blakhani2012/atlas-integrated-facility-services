@@ -1,0 +1,36 @@
+---
+import Icon from './Icon.astro';
+/**
+ * Button / link. variant: primary | secondary | ghost | white
+ */
+interface Props {
+  href: string;
+  variant?: 'primary' | 'secondary' | 'ghost' | 'white';
+  size?: 'md' | 'lg';
+  icon?: string;
+  class?: string;
+}
+const { href, variant = 'primary', size = 'md', icon, class: className = '' } = Astro.props;
+
+const base =
+  'group inline-flex items-center justify-center gap-2 font-semibold rounded-full transition-all duration-300 ease-out';
+const sizes = {
+  md: 'px-6 py-3 text-sm',
+  lg: 'px-8 py-4 text-base',
+};
+const variants = {
+  primary:
+    'bg-forest-600 text-white shadow-lg shadow-forest-900/15 hover:bg-forest-700 hover:shadow-xl hover:shadow-forest-900/25 hover:-translate-y-0.5',
+  secondary:
+    'bg-lime-accent-400 text-forest-900 shadow-lg shadow-lime-accent-600/20 hover:bg-lime-accent-300 hover:-translate-y-0.5',
+  ghost:
+    'bg-transparent text-forest-700 ring-1 ring-forest-200 hover:ring-forest-400 hover:bg-forest-50',
+  white:
+    'bg-white text-forest-700 shadow-lg shadow-forest-900/10 hover:bg-sand-50 hover:-translate-y-0.5',
+};
+---
+
+<a href={href} class={`${base} ${sizes[size]} ${variants[variant]} ${className}`}>
+  <slot />
+  {icon && <Icon name={icon} class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />}
+</a>
