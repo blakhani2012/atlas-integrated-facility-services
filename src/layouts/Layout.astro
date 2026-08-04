@@ -14,6 +14,9 @@ const {
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://www.atlasintegrated.com.au');
+
+// Base path without a trailing slash, for joining static asset URLs (e.g. GitHub Pages sub-path)
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <!doctype html>
@@ -25,7 +28,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://www.atlasin
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <meta name="theme-color" content="#1b5e3a" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href={`${base}/favicon.svg`} type="image/svg+xml" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
