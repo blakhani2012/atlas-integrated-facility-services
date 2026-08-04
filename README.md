@@ -69,6 +69,12 @@ PUBLIC_FORM_ENDPOINT=https://formspree.io/f/xxxxxx
 
 ## Deploying
 
+> **Currently live on GitHub Pages:**
+> **https://blakhani2012.github.io/atlas-integrated-facility-services/**
+> Every push to `main` auto-deploys via `.github/workflows/deploy.yml`.
+> When the client's real hosting/domain is ready, set `site` in `astro.config.mjs`
+> to that domain and remove `base`, or add a custom domain in the repo's Pages settings.
+
 ### Netlify (recommended)
 1. Push this repo to GitHub.
 2. In Netlify → "Add new site" → "Import an existing project" → pick the repo.
