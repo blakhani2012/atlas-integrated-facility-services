@@ -6,7 +6,7 @@ import Icon from './Icon.astro';
 // 1. Get a free access key at https://web3forms.com (enter info@atlasifs.com.au).
 // 2. Paste it below (or set PUBLIC_WEB3FORMS_KEY in a .env file).
 // If no key is set, it falls back to the self-hosted PHP handler (/contact.php).
-const WEB3FORMS_KEY = import.meta.env.PUBLIC_WEB3FORMS_KEY || 'REPLACE_WITH_WEB3FORMS_ACCESS_KEY';
+const WEB3FORMS_KEY = import.meta.env.PUBLIC_WEB3FORMS_KEY || '673b0705-3b4d-4312-907c-3c8e7e1a8317';
 const useWeb3Forms = WEB3FORMS_KEY && !WEB3FORMS_KEY.startsWith('REPLACE_WITH');
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
