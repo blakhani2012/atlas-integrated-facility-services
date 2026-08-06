@@ -2,11 +2,17 @@
 import { company, services } from '../data/site.js';
 import Icon from './Icon.astro';
 
-// Submissions are handled by the PHP script in /public/contact.php, which emails
-// them to the address in site.js. (Override with PUBLIC_FORM_ENDPOINT — e.g. a
-// Formspree URL — if you ever move off PHP hosting.)
+// Submissions go to Web3Forms (free, unlimited) — this bypasses the host WAF.
+// 1. Get a free access key at https://web3forms.com (enter info@atlasifs.com.au).
+// 2. Paste it below (or set PUBLIC_WEB3FORMS_KEY in a .env file).
+// If no key is set, it falls back to the self-hosted PHP handler (/contact.php).
+const WEB3FORMS_KEY = import.meta.env.PUBLIC_WEB3FORMS_KEY || 'REPLACE_WITH_WEB3FORMS_ACCESS_KEY';
+const useWeb3Forms = WEB3FORMS_KEY && !WEB3FORMS_KEY.startsWith('REPLACE_WITH');
+
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const FORM_ENDPOINT = import.meta.env.PUBLIC_FORM_ENDPOINT || `${base}/contact.php`;
+const FORM_ENDPOINT = useWeb3Forms
+  ? 'https://api.web3forms.com/submit'
+  : import.meta.env.PUBLIC_FORM_ENDPOINT || `${base}/contact.php`;
 ---
 
 <section id="contact" class="py-20 md:py-28 bg-forest-950 text-sand-100 relative overflow-hidden">
@@ -75,14 +81,22 @@ const FORM_ENDPOINT = import.meta.env.PUBLIC_FORM_ENDPOINT || `${base}/contact.p
           class="bg-white rounded-3xl p-6 sm:p-8 shadow-2xl shadow-black/30"
           action={FORM_ENDPOINT}
           method="POST"
-          data-netlify="true"
           name="quote"
         >
-          <input type="hidden" name="form-name" value="quote" />
-          <!-- honeypot -->
-          <p class="hidden">
-            <label>Don't fill this out: <input name="bot-field" /></label>
+          {
+            useWeb3Forms && (
+              <>
+                <input type="hidden" name="access_key" value={WEB3FORMS_KEY} />
+                <input type="hidden" name="subject" value="New website enquiry — Atlas IFS" />
+                <input type="hidden" name="from_name" value="Atlas Website" />
+              </>
+            )
+          }
+          <!-- honeypots: bot-field (custom) + botcheck (Web3Forms) -->
+          <p class="hidden" aria-hidden="true">
+            <label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
           </p>
+          <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
           <div class="grid sm:grid-cols-2 gap-4">
             <div class="sm:col-span-1">
