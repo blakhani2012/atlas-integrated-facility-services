@@ -21,6 +21,10 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      # Build the GitHub Pages preview under the repo sub-path.
+      # (Local `npm run build` omits this and targets the production domain.)
+      DEPLOY_TARGET: gh-pages
     steps:
       - name: Checkout
         uses: actions/checkout@v4

@@ -10,14 +10,14 @@ export const company = {
   shortName: 'Atlas',
   tagline: 'One partner for a cleaner, greener, better-run facility.',
   // TODO: replace with real contact details
-  phone: '1300 000 000',
-  phoneHref: 'tel:1300000000',
-  email: 'hello@atlasintegrated.com.au',
-  emailHref: 'mailto:hello@atlasintegrated.com.au',
-  abn: 'ABN 00 000 000 000', // TODO
+  phone: '+61 402 986 444',
+  phoneHref: 'tel:+61402986444',
+  email: 'info@atlasifs.com.au',
+  emailHref: 'mailto:info@atlasifs.com.au',
+  abn: '', // TODO: add ABN when the client provides it
   address: {
-    line1: 'Level 1, 100 Example Street',
-    line2: 'Sydney NSW 2000',
+    line1: '24 Ceratta Cres',
+    line2: 'Tarneit VIC 3029',
     country: 'Australia',
   },
   hours: 'Mon–Fri 7:00am – 6:00pm · 24/7 emergency response',

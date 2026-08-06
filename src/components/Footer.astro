@@ -99,7 +99,7 @@ const year = new Date().getFullYear();
     <div
       class="mt-14 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-sand-100/50"
     >
-      <p>© {year} {company.legalName}. {company.abn}. All rights reserved.</p>
+      <p>© {year} {company.legalName}.{company.abn ? ` ${company.abn}.` : ''} All rights reserved.</p>
       <p class="flex items-center gap-2">
         <Icon name="leaf" class="w-4 h-4 text-lime-accent-400" />
         Proudly sustainable · Australian owned &amp; operated

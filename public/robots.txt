@@ -1,4 +1,2 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://www.atlasintegrated.com.au/sitemap-index.xml

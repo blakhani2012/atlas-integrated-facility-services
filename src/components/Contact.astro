@@ -170,7 +170,7 @@ const FORM_ENDPOINT = import.meta.env.PUBLIC_FORM_ENDPOINT || 'https://formspree
           .filter(([k]) => !['form-name', 'bot-field'].includes(k))
           .map(([k, v]) => `${k}: ${v}`)
           .join('\n');
-        window.location.href = `mailto:${'hello@atlasintegrated.com.au'}?subject=${encodeURIComponent(
+        window.location.href = `mailto:${'info@atlasifs.com.au'}?subject=${encodeURIComponent(
           'Website quote request'
         )}&body=${encodeURIComponent(body)}`;
         show('Opening your email app… (Tip: connect Formspree or Netlify Forms to receive these automatically.)', true);

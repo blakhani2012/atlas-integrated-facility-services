@@ -4,12 +4,14 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 //
-// Currently deployed to GitHub Pages (project site → served under a sub-path).
-// When the client's real hosting/domain is ready, set `site` to that domain and
-// remove `base` (or set it to '/').
+// Build target:
+//   • default            → PRODUCTION on the client's own domain (atlasifs.com.au), served at root.
+//   • DEPLOY_TARGET=gh-pages → the GitHub Pages preview under the repo sub-path (set in the CI workflow).
+const ghPages = process.env.DEPLOY_TARGET === 'gh-pages';
+
 export default defineConfig({
-  site: 'https://blakhani2012.github.io',
-  base: '/atlas-integrated-facility-services',
+  site: ghPages ? 'https://blakhani2012.github.io' : 'https://atlasifs.com.au',
+  base: ghPages ? '/atlas-integrated-facility-services' : '/',
   vite: {
     plugins: [tailwindcss()],
   },
