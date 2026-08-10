@@ -5,6 +5,7 @@ import Icon from '../../components/Icon.astro';
 import { servicePages } from '../../data/servicePages.js';
 import { services } from '../../data/site.js';
 import { images, img } from '../../data/images.js';
+import { link } from '../../lib/link.js';
 
 export function getStaticPaths() {
   return Object.keys(servicePages).map((slug) => ({
@@ -17,7 +18,7 @@ const { slug } = Astro.props;
 const page = servicePages[slug];
 const heroImage = images.services[slug];
 const related = services.filter((s) => s.id !== slug);
-const quoteHref = '/#contact';
+const quoteHref = link('/#contact');
 ---
 
 <Layout title={page.metaTitle} description={page.metaDescription}>
@@ -26,9 +27,9 @@ const quoteHref = '/#contact';
     <div class="pointer-events-none absolute -top-24 -right-24 w-[30rem] h-[30rem] rounded-full bg-lime-accent-400/15 blur-3xl"></div>
     <div class="container-x relative">
       <nav class="mb-6 text-sm text-forest-700/60" aria-label="Breadcrumb">
-        <a href="/" class="hover:text-forest-700">Home</a>
+        <a href={link('/')} class="hover:text-forest-700">Home</a>
         <span class="mx-2">/</span>
-        <a href="/#services" class="hover:text-forest-700">Services</a>
+        <a href={link('/#services')} class="hover:text-forest-700">Services</a>
         <span class="mx-2">/</span>
         <span class="text-forest-800 font-500">{page.navLabel}</span>
       </nav>
@@ -235,7 +236,7 @@ const quoteHref = '/#contact';
       <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {
           related.map((s) => (
-            <a href={s.href} class="reveal card-lift group flex items-center gap-4 bg-white rounded-2xl p-5 ring-1 ring-forest-900/5 shadow-sm hover:shadow-lg hover:ring-forest-200">
+            <a href={link(s.href)} class="reveal card-lift group flex items-center gap-4 bg-white rounded-2xl p-5 ring-1 ring-forest-900/5 shadow-sm hover:shadow-lg hover:ring-forest-200">
               <span class="grid place-items-center w-12 h-12 rounded-xl bg-forest-50 text-forest-600 group-hover:bg-forest-600 group-hover:text-lime-accent-400 transition-colors shrink-0">
                 <Icon name={s.icon} class="w-6 h-6" />
               </span>

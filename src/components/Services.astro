@@ -3,6 +3,7 @@ import { services } from '../data/site.js';
 import { images, img } from '../data/images.js';
 import Icon from './Icon.astro';
 import Button from './Button.astro';
+import { link } from '../lib/link.js';
 ---
 
 <section id="services" class="py-20 md:py-28 bg-white">
@@ -52,7 +53,7 @@ import Button from './Button.astro';
                 ))}
               </ul>
               <a
-                href={s.href}
+                href={link(s.href)}
                 class="mt-6 inline-flex items-center gap-1.5 text-sm font-600 text-forest-600 hover:text-forest-800 group/link"
               >
                 Explore this service

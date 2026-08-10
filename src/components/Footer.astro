@@ -2,6 +2,7 @@
 import { company, nav, services, acknowledgement } from '../data/site.js';
 import Icon from './Icon.astro';
 import Logo from './Logo.astro';
+import { link } from '../lib/link.js';
 const year = new Date().getFullYear();
 ---
 
@@ -10,7 +11,7 @@ const year = new Date().getFullYear();
     <div class="grid gap-12 lg:grid-cols-12">
       <!-- Brand -->
       <div class="lg:col-span-4">
-        <a href="#home" class="flex items-center gap-3">
+        <a href={link('/')} class="flex items-center gap-3">
           <Logo class="h-11 w-11" />
           <span class="font-display font-700 text-lg text-white">Atlas</span>
         </a>
@@ -43,7 +44,7 @@ const year = new Date().getFullYear();
           {
             nav.map((item) => (
               <li>
-                <a href={item.href} class="text-sand-100/70 hover:text-lime-accent-400 transition-colors text-sm">
+                <a href={link(item.href)} class="text-sand-100/70 hover:text-lime-accent-400 transition-colors text-sm">
                   {item.label}
                 </a>
               </li>
@@ -59,7 +60,7 @@ const year = new Date().getFullYear();
           {
             services.map((s) => (
               <li>
-                <a href={`#services`} class="text-sand-100/70 hover:text-lime-accent-400 transition-colors text-sm">
+                <a href={link(s.href)} class="text-sand-100/70 hover:text-lime-accent-400 transition-colors text-sm">
                   {s.title}
                 </a>
               </li>

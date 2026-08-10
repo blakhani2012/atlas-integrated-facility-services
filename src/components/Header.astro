@@ -2,6 +2,7 @@
 import { company, nav } from '../data/site.js';
 import Icon from './Icon.astro';
 import Logo from './Logo.astro';
+import { link } from '../lib/link.js';
 ---
 
 <header
@@ -15,7 +16,7 @@ import Logo from './Logo.astro';
              bg-white/80 backdrop-blur-md ring-1 ring-forest-900/5 shadow-lg shadow-forest-900/5"
       aria-label="Primary"
     >
-      <a href="/" class="flex items-center gap-2.5 shrink-0" aria-label={`${company.name} home`}>
+      <a href={link('/')} class="flex items-center gap-2.5 shrink-0" aria-label={`${company.name} home`}>
         <Logo class="h-9 w-9" />
         <span class="font-display font-700 text-forest-800 leading-tight text-[15px] md:text-base">
           Atlas<span class="hidden sm:inline text-forest-500 font-500"> Facility Services</span>
@@ -27,7 +28,7 @@ import Logo from './Logo.astro';
           nav.map((item) => (
             <li>
               <a
-                href={item.href}
+                href={link(item.href)}
                 class="px-3.5 py-2 text-sm font-500 text-forest-700 rounded-full hover:bg-forest-50 hover:text-forest-900 transition-colors"
               >
                 {item.label}
@@ -46,7 +47,7 @@ import Logo from './Logo.astro';
           {company.phone}
         </a>
         <a
-          href="/#contact"
+          href={link('/#contact')}
           class="hidden sm:inline-flex items-center gap-2 bg-forest-600 text-white text-sm font-600 px-5 py-2.5 rounded-full hover:bg-forest-700 transition-colors shadow-md shadow-forest-900/10"
         >
           Get a Free Quote
@@ -92,7 +93,7 @@ import Logo from './Logo.astro';
           nav.map((item) => (
             <li>
               <a
-                href={item.href}
+                href={link(item.href)}
                 class="menu-link block px-4 py-3 rounded-xl text-lg font-600 text-forest-800 hover:bg-forest-50"
               >
                 {item.label}
@@ -110,7 +111,7 @@ import Logo from './Logo.astro';
           {company.phone}
         </a>
         <a
-          href="/#contact"
+          href={link('/#contact')}
           class="menu-link block text-center bg-forest-600 text-white font-600 px-5 py-3.5 rounded-full hover:bg-forest-700"
         >
           Get a Free Quote

@@ -1,0 +1,49 @@
+---
+import Icon from './Icon.astro';
+
+const steps = [
+  { title: 'Consultation', text: 'We take the time to understand your workplace, priorities and cleaning requirements.' },
+  { title: 'Site Assessment', text: 'Where required, we visit your premises to assess the scope and prepare a tailored proposal.' },
+  { title: 'Tailored Proposal', text: 'You receive a transparent quote outlining the recommended services, schedule and program.' },
+  { title: 'Ongoing Service & Review', text: 'We deliver consistent cleaning to schedule, backed by regular quality inspections and feedback.' },
+];
+---
+
+<section id="process" class="py-20 md:py-28 bg-white">
+  <div class="container-x">
+    <div class="max-w-2xl reveal">
+      <span class="eyebrow">How it works</span>
+      <h2 class="mt-4 text-3xl sm:text-4xl font-800 text-forest-900 leading-tight">
+        A simple, transparent process
+      </h2>
+      <p class="mt-4 text-forest-800/70 leading-relaxed">
+        From first conversation to ongoing service, we keep things clear and easy — so you always
+        know what to expect.
+      </p>
+    </div>
+
+    <ol class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      {
+        steps.map((s, i) => (
+          <li class="reveal relative bg-sand-50 rounded-2xl p-6 ring-1 ring-forest-900/5" data-delay={`${(i % 4) * 70}ms`}>
+            <div class="flex items-center gap-3">
+              <span class="grid place-items-center w-10 h-10 rounded-xl bg-forest-600 text-lime-accent-400 font-display font-800">
+                {i + 1}
+              </span>
+              {i < steps.length - 1 && <span class="hidden lg:block flex-1 border-t border-dashed border-forest-200" />}
+            </div>
+            <h3 class="mt-4 font-display font-700 text-forest-900">{s.title}</h3>
+            <p class="mt-2 text-sm text-forest-700/75 leading-relaxed">{s.text}</p>
+          </li>
+        ))
+      }
+    </ol>
+
+    <div class="mt-8 reveal">
+      <a href="#contact" class="inline-flex items-center gap-2 font-600 text-forest-600 hover:text-forest-800">
+        Request a free quote
+        <Icon name="arrow" class="w-4 h-4" />
+      </a>
+    </div>
+  </div>
+</section>
