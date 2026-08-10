@@ -10,11 +10,11 @@ import Button from './Button.astro';
     <div class="max-w-2xl reveal">
       <span class="eyebrow">What we do</span>
       <h2 class="mt-4 text-3xl sm:text-4xl font-800 text-forest-900 leading-tight">
-        Every facility service, delivered by one team
+        Commercial cleaning, tailored to your workplace
       </h2>
       <p class="mt-4 text-forest-800/70 leading-relaxed">
-        Mix and match, or hand us the lot. However you build your scope, you get a single point of
-        accountability and consistent standards across every site.
+        From daily office cleaning to builders’ handovers and end-of-lease cleans, every program is
+        built around your site, your hours and your priorities.
       </p>
     </div>
 
@@ -52,10 +52,10 @@ import Button from './Button.astro';
                 ))}
               </ul>
               <a
-                href="#contact"
+                href={s.href}
                 class="mt-6 inline-flex items-center gap-1.5 text-sm font-600 text-forest-600 hover:text-forest-800 group/link"
               >
-                Request this service
+                Explore this service
                 <Icon name="arrow" class="w-4 h-4 transition-transform group-hover/link:translate-x-1" />
               </a>
             </div>
@@ -66,7 +66,7 @@ import Button from './Button.astro';
 
     <div class="mt-12 text-center reveal">
       <Button href="#contact" variant="secondary" size="lg" icon="arrow">
-        Build my facility package
+        Get a free quote
       </Button>
     </div>
   </div>

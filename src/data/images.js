@@ -23,15 +23,17 @@ export function img(src, { w = 1600, h, q = 72 } = {}) {
 }
 
 export const images = {
-  hero: 'photo-1416879595882-3373a0480b5b', // lush green landscaped path
+  hero: 'photo-1600880292203-757bb62b4baf', // clean modern office
   aboutPrimary: 'photo-1521737604893-d14cc237f11d', // team on site
-  aboutSecondary: 'photo-1558904541-efa843a96f01', // grounds / mowing
-  whyChoose: 'photo-1497366216548-37526070297c', // clean modern workspace
-  ctaBackdrop: 'photo-1441974231531-c6227db76b6e', // forest canopy
+  aboutSecondary: 'photo-1584622650111-993a426fbf0a', // cleaning trolley / products
+  whyChoose: 'photo-1497366216548-37526070297c', // clean, tidy workspace
+  ctaBackdrop: 'photo-1497366811353-6870744d04b2', // office interior
   services: {
-    'commercial-cleaning': 'photo-1581578731548-c64695cc6952',
-    'grounds-landscaping': 'photo-1558904541-efa843a96f01',
-    'waste-hygiene': 'photo-1584622650111-993a426fbf0a',
-    'facilities-management': 'photo-1497366811353-6870744d04b2',
+    'office-cleaning': 'photo-1581578731548-c64695cc6952',
+    'builders-handover-cleaning': 'photo-1600585154340-be6161a56a0c',
+    'end-of-lease-cleaning': 'photo-1560448204-e02f11c3d0e2',
+    'strata-cleaning': 'photo-1600566753086-00f18fb6b3ea',
+    'airbnb-cleaning': 'photo-1560185007-cde436f6a4d0',
+    'childcare-cleaning': 'photo-1503676260728-1c00da094a0b',
   },
 };

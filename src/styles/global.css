@@ -2,7 +2,7 @@
 
 /* ============================================================
    Atlas Integrated Facility Services — Design System
-   Brand: Green & sustainable (forest + lime, warm neutrals)
+   Brand: deep forest green + gold (from logo), warm neutrals
    ============================================================ */
 
 @theme {
@@ -19,11 +19,12 @@
   --color-forest-900: #0d2e1d;
   --color-forest-950: #071c11;
 
-  /* Accent — fresh lime */
-  --color-lime-accent-300: #c6f27a;
-  --color-lime-accent-400: #a8e063;
-  --color-lime-accent-500: #8bd03f;
-  --color-lime-accent-600: #6fb01f;
+  /* Accent — brand gold (from the Atlas logo). Token name kept as
+     "lime-accent-*" so existing utility classes retheme in one place. */
+  --color-lime-accent-300: #e7d190;
+  --color-lime-accent-400: #d8bd63;
+  --color-lime-accent-500: #c6a545;
+  --color-lime-accent-600: #a1802f;
 
   /* Warm neutrals */
   --color-sand-50: #faf8f3;
@@ -119,7 +120,7 @@ h4 {
 /* Subtle grain/leaf texture background */
 .bg-hero-grad {
   background:
-    radial-gradient(120% 120% at 85% 0%, rgba(139, 208, 63, 0.16) 0%, transparent 45%),
+    radial-gradient(120% 120% at 85% 0%, rgba(198, 165, 69, 0.18) 0%, transparent 45%),
     radial-gradient(100% 100% at 0% 100%, rgba(27, 94, 58, 0.10) 0%, transparent 50%),
     linear-gradient(180deg, #ffffff 0%, var(--color-sand-50) 100%);
 }

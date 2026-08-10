@@ -1,5 +1,5 @@
 ---
-import { company, nav, services } from '../data/site.js';
+import { company, nav, services, acknowledgement } from '../data/site.js';
 import Icon from './Icon.astro';
 import Logo from './Logo.astro';
 const year = new Date().getFullYear();
@@ -15,7 +15,7 @@ const year = new Date().getFullYear();
           <span class="font-display font-700 text-lg text-white">Atlas</span>
         </a>
         <p class="mt-5 text-sand-100/70 max-w-xs leading-relaxed">
-          {company.tagline} Integrated cleaning, grounds, waste and facilities management across Australia.
+          {company.tagline} Reliable commercial cleaning for offices, strata, end-of-lease, Airbnb, childcare and builders across Melbourne.
         </p>
         <div class="mt-6 flex gap-3">
           {
@@ -96,13 +96,19 @@ const year = new Date().getFullYear();
       </div>
     </div>
 
+    <!-- Acknowledgement of Country -->
+    <div class="mt-12 pt-8 border-t border-white/10">
+      <p class="text-xs uppercase tracking-wider text-lime-accent-400 font-600 mb-2">Acknowledgement of Country</p>
+      <p class="text-sm text-sand-100/60 max-w-3xl leading-relaxed">{acknowledgement}</p>
+    </div>
+
     <div
-      class="mt-14 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-sand-100/50"
+      class="mt-10 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-sand-100/50"
     >
       <p>© {year} {company.legalName}.{company.abn ? ` ${company.abn}.` : ''} All rights reserved.</p>
       <p class="flex items-center gap-2">
-        <Icon name="leaf" class="w-4 h-4 text-lime-accent-400" />
-        Proudly sustainable · Australian owned &amp; operated
+        <Icon name="check" class="w-4 h-4 text-lime-accent-400" />
+        Australian owned &amp; operated
       </p>
     </div>
   </div>

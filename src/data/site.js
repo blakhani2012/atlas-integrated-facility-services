@@ -8,8 +8,7 @@ export const company = {
   name: 'Atlas Integrated Facility Services',
   legalName: 'Atlas Integrated Facility Services Pty Ltd',
   shortName: 'Atlas',
-  tagline: 'One partner for a cleaner, greener, better-run facility.',
-  // TODO: replace with real contact details
+  tagline: 'Reliable commercial cleaning, managed properly.',
   phone: '+61 402 986 444',
   phoneHref: 'tel:+61402986444',
   email: 'info@atlasifs.com.au',
@@ -20,7 +19,7 @@ export const company = {
     line2: 'Tarneit VIC 3029',
     country: 'Australia',
   },
-  hours: 'Mon–Fri 7:00am – 6:00pm · 24/7 emergency response',
+  hours: 'Flexible scheduling · after-hours, early-morning & weekend cleaning',
   socials: {
     linkedin: '#',
     facebook: '#',
@@ -28,131 +27,156 @@ export const company = {
   },
 };
 
+/** Acknowledgement of Country — shown in the footer */
+export const acknowledgement =
+  'Atlas Integrated Facility Services acknowledges the Traditional Owners and Custodians of the lands on which we live and work. We pay our respects to Elders past and present, and extend that respect to all Aboriginal and Torres Strait Islander peoples.';
+
 export const nav = [
-  { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Services', href: '#services' },
-  { label: 'Why Atlas', href: '#why' },
-  { label: 'Sectors', href: '#sectors' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/#about' },
+  { label: 'Services', href: '/#services' },
+  { label: 'Why Atlas', href: '/#why' },
+  { label: 'Contact', href: '/#contact' },
 ];
 
 /** Four trust pillars shown under the hero */
 export const pillars = [
   {
     icon: 'shield',
-    title: 'Fully Insured & Certified',
-    text: 'Public liability cover, ISO-aligned processes and full compliance documentation on every site.',
+    title: 'Fully Insured',
+    text: 'Appropriate insurance cover and safe, professional work practices on every site.',
   },
   {
     icon: 'users',
     title: 'Trained Local Teams',
-    text: 'Vetted, uniformed and directly employed staff — never faceless subcontractors.',
+    text: 'Vetted, uniformed teams who take genuine pride in your workplace.',
   },
   {
-    icon: 'leaf',
-    title: 'Eco-Friendly Methods',
-    text: 'Low-tox products, water-wise practices and measurable waste-diversion targets.',
+    icon: 'check',
+    title: 'Quality Assurance',
+    text: 'Regular inspections keep every clean consistent with what we agreed.',
   },
   {
     icon: 'clock',
-    title: '24/7 Rapid Response',
-    text: 'A single point of contact and emergency call-outs whenever you need them.',
+    title: 'Flexible Scheduling',
+    text: 'Daily, after-hours, early-morning or weekend cleaning around your operations.',
   },
 ];
 
-/** Core service offerings (from the Services grid) */
+/** Core cleaning services (each links to a dedicated page) */
 export const services = [
   {
-    id: 'commercial-cleaning',
-    title: 'Commercial Cleaning',
+    id: 'office-cleaning',
+    title: 'Office Cleaning',
+    href: '/services/office-cleaning',
     summary:
-      'Daily office, retail, medical and industrial cleaning that keeps your spaces spotless, safe and presentable.',
-    points: ['Office & workplace cleaning', 'Medical & clinical hygiene', 'Retail & showroom presentation', 'Industrial & warehouse'],
+      'Reliable daily and periodic office cleaning tailored to your workplace, hours and priorities.',
+    points: ['Workstations & offices', 'Reception areas', 'Kitchens & amenities', 'Washrooms & floors'],
     icon: 'sparkles',
   },
   {
-    id: 'grounds-landscaping',
-    title: 'Grounds & Landscaping',
+    id: 'builders-handover-cleaning',
+    title: 'Builders & Handover Cleaning',
+    href: '/services/builders-handover-cleaning',
     summary:
-      'Lawn care, gardens and external grounds maintained to keep your kerb appeal sharp all year round.',
-    points: ['Lawn & turf care', 'Garden bed maintenance', 'Pruning & green-waste removal', 'Seasonal planting'],
-    icon: 'leaf',
+      'Detailed post-construction cleans that prepare residential and commercial projects for handover.',
+    points: ['Final builders’ cleans', 'Dust & residue removal', 'Kitchen & bathroom detailing', 'Internal windows'],
+    icon: 'factory',
   },
   {
-    id: 'waste-hygiene',
-    title: 'Waste, Hygiene & Washrooms',
+    id: 'end-of-lease-cleaning',
+    title: 'End of Lease Cleaning',
+    href: '/services/end-of-lease-cleaning',
     summary:
-      'Waste management, washroom servicing and pest control that protect health and keep sites compliant.',
-    points: ['Waste & recycling management', 'Washroom & sanitary services', 'Pest control', 'Consumables restocking'],
-    icon: 'recycle',
+      'Thorough move-out cleans that help tenants, landlords and agents pass the final inspection.',
+    points: ['Kitchens & bathrooms', 'Living areas & bedrooms', 'Internal windows & tracks', 'Detail cleaning'],
+    icon: 'home',
   },
   {
-    id: 'facilities-management',
-    title: 'Integrated Facilities Management',
+    id: 'strata-cleaning',
+    title: 'Strata Cleaning',
+    href: '/services/strata-cleaning',
     summary:
-      'One coordinated team across multiple sites — a single point of accountability for every service you need.',
-    points: ['Multi-site coordination', 'Help desk & reporting', 'Contractor management', 'Preventive maintenance'],
+      'Dependable common-area cleaning for owners corporations, body corporates and property managers.',
+    points: ['Foyers, hallways & lifts', 'Stairwells & glass', 'Bin rooms', 'High-touch surfaces'],
     icon: 'building',
+  },
+  {
+    id: 'airbnb-cleaning',
+    title: 'Airbnb Cleaning',
+    href: '/services/airbnb-cleaning',
+    summary:
+      'Fast, consistent turnaround cleaning that keeps your short-stay property guest-ready.',
+    points: ['Guest turnover cleans', 'Kitchens & bathrooms', 'Bed making (linen supplied)', 'Final presentation'],
+    icon: 'star',
+  },
+  {
+    id: 'childcare-cleaning',
+    title: 'Childcare Cleaning',
+    href: '/services/childcare-cleaning',
+    summary:
+      'Careful, hygienic cleaning for childcare centres and early-learning environments, after hours.',
+    points: ['Classrooms & play areas', 'Bathrooms & amenities', 'High-touch surfaces', 'Tailored schedules'],
+    icon: 'heart',
   },
 ];
 
-/** Headline stats band */
+/** Headline stats band (kept accurate — no unverified metrics) */
 export const stats = [
-  { value: '15', suffix: '+', label: 'Years serving Australian businesses' },
-  { value: '500', suffix: '+', label: 'Sites cleaned & maintained' },
-  { value: '98', suffix: '%', label: 'Client retention rate' },
-  { value: '24/7', suffix: '', label: 'Emergency response' },
+  { value: '15', suffix: '+', label: 'Years of industry experience' },
+  { value: '6', suffix: '', label: 'Cleaning specialisations' },
+  { value: '5', suffix: '', label: 'Service-standard principles' },
+  { value: '100', suffix: '%', label: 'Focus on quality & communication' },
 ];
 
 /** "Why choose Atlas" reasons */
 export const whyReasons = [
   {
-    title: 'One partner, every service',
-    text: 'Cleaning, grounds, waste and full FM under one contract — fewer invoices, one number to call, total accountability.',
+    title: 'A partner, not just a contractor',
+    text: 'We build long-term relationships based on reliability, communication and accountability — not one-off jobs.',
   },
   {
     title: 'People you can trust',
-    text: 'Police-checked, directly employed and continuously trained teams who take pride in your site.',
+    text: 'Vetted, uniformed and directly managed teams who take pride in maintaining your workplace.',
   },
   {
-    title: 'Sustainability built in',
-    text: 'Green-certified products, waste diversion and transparent reporting help you hit your ESG goals.',
+    title: 'Quality you can see',
+    text: 'Regular inspections and client feedback keep our standards consistently high.',
   },
   {
     title: 'Tailored to your site',
-    text: 'Scopes are built around your building, hours and budget — never a one-size-fits-all package.',
+    text: 'Cleaning programs built around your layout, operating hours and priorities — never one-size-fits-all.',
   },
 ];
 
-/** Sectors / industries served */
+/** Industries / businesses we support */
 export const sectors = [
-  { name: 'Commercial Offices', icon: 'building' },
-  { name: 'Retail & Shopping Centres', icon: 'store' },
-  { name: 'Healthcare & Aged Care', icon: 'heart' },
-  { name: 'Education', icon: 'book' },
-  { name: 'Industrial & Warehousing', icon: 'factory' },
+  { name: 'Corporate Offices', icon: 'building' },
+  { name: 'Medical & Allied Health', icon: 'heart' },
+  { name: 'Law & Accounting Firms', icon: 'book' },
+  { name: 'Real Estate Agencies', icon: 'store' },
+  { name: 'Childcare & Education', icon: 'users' },
   { name: 'Strata & Body Corporate', icon: 'home' },
 ];
 
-/** Client testimonials */
+/** Client testimonials — TODO: replace with real, attributed quotes */
 export const testimonials = [
   {
     quote:
-      'Switching to Atlas for cleaning, grounds and waste under one contract cut our admin in half. Standards went up, not down.',
-    name: 'Facilities Manager',
-    role: 'National Retail Group', // TODO: real attribution
+      'Atlas took over our office cleaning and the difference was immediate — consistent standards and a single point of contact who actually answers.',
+    name: 'Office Manager',
+    role: 'Professional services firm', // TODO: real attribution
   },
   {
     quote:
-      'Their team is reliable, professional and genuinely cares about our site. The 24/7 response has saved us more than once.',
-    name: 'Building Manager',
-    role: 'A-Grade Commercial Tower', // TODO
+      'Reliable, professional and easy to deal with. Their after-hours cleaning means zero disruption to our team.',
+    name: 'Practice Manager',
+    role: 'Medical clinic', // TODO
   },
   {
     quote:
-      'The sustainability reporting alone made the switch worth it. Atlas helped us hit waste-diversion targets we thought were years away.',
-    name: 'Operations Director',
-    role: 'Aged Care Provider', // TODO
+      'Their builders’ cleans make our completed projects present beautifully at handover. A trusted part of our process.',
+    name: 'Site Supervisor',
+    role: 'Residential builder', // TODO
   },
 ];
