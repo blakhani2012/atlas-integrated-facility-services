@@ -1,32 +1,22 @@
 ---
 /**
- * Atlas logo mark — solid angular "A" (triangle with a small counter + base
- * notch), left foot, ascending sparkles and motion lines. Recreated in SVG
- * from the client artwork. Monochrome; defaults to brand gold. Resolution-
- * independent, so it renders crisply on desktop and mobile alike.
+ * Atlas logo mark — the client's actual artwork (gold triangle-A with sparkles
+ * and motion lines), exported from the supplied logo. Transparent PNG, so it
+ * sits on light and dark backgrounds; height-driven so it scales on all screens.
  */
 interface Props {
   class?: string;
-  color?: string;
 }
-const { class: className = 'h-10 w-10', color = '#c6a545' } = Astro.props;
+const { class: className = 'h-10 w-auto' } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
-<svg class={className} viewBox="0 0 128 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Atlas">
-  <g fill={color}>
-    <!-- Main A: outer triangle with counter hole + base notch (even-odd) -->
-    <path
-      fill-rule="evenodd"
-      d="M72 28 L96 116 L34 116 Z M70 56 L81 89 L59 89 Z M58 116 L74 116 L66 91 Z"
-    />
-    <!-- left foot -->
-    <path d="M18 108 H40 L40 116 H18 Z" />
-    <!-- motion lines -->
-    <rect x="92" y="99" width="30" height="6.5" rx="3.25" />
-    <rect x="97" y="111" width="27" height="6.5" rx="3.25" />
-    <!-- sparkles -->
-    <polygon points="60,12 62.5,17.5 68,20 62.5,22.5 60,28 57.5,22.5 52,20 57.5,17.5" />
-    <polygon points="73,3 74.8,7 79,8.8 74.8,10.6 73,14.6 71.2,10.6 67,8.8 71.2,7" />
-    <polygon points="51,26 52.3,28.9 55.2,30.2 52.3,31.5 51,34.4 49.7,31.5 46.8,30.2 49.7,28.9" />
-  </g>
-</svg>
+<img
+  src={`${base}/images/atlas-mark.png`}
+  alt="Atlas"
+  width="1172"
+  height="1281"
+  loading="eager"
+  decoding="async"
+  class={className}
+/>

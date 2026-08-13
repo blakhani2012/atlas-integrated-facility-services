@@ -3,6 +3,7 @@ import { company, nav, services, acknowledgement } from '../data/site.js';
 import Icon from './Icon.astro';
 import Logo from './Logo.astro';
 import { link } from '../lib/link.js';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const year = new Date().getFullYear();
 ---
 
@@ -12,11 +13,14 @@ const year = new Date().getFullYear();
       <!-- Brand -->
       <div class="lg:col-span-4">
         <a href={link('/')} class="flex items-center gap-3">
-          <Logo class="h-12 w-12" />
-          <span class="flex flex-col leading-none">
-            <span class="font-display font-700 tracking-[0.22em] text-white text-xl">ATLAS</span>
-            <span class="text-[8.5px] tracking-[0.18em] uppercase text-sand-100/50 mt-1">Integrated Facility Services</span>
-          </span>
+          <Logo class="h-12 w-auto" />
+          <img
+            src={`${base}/images/atlas-text-white.png`}
+            alt="Atlas Integrated Facility Services"
+            width="3600"
+            height="1128"
+            class="h-8 w-auto"
+          />
         </a>
         <p class="mt-5 text-sand-100/70 max-w-xs leading-relaxed">
           {company.tagline} Reliable commercial cleaning for offices, strata, end-of-lease, Airbnb, childcare and builders across Melbourne.
