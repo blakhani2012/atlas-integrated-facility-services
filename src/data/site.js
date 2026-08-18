@@ -15,8 +15,7 @@ export const company = {
   emailHref: 'mailto:info@atlasifs.com.au',
   abn: '', // TODO: add ABN when the client provides it
   address: {
-    line1: '24 Ceratta Cres',
-    line2: 'Tarneit VIC 3029',
+    locality: 'Tarneit VIC 3029',
     country: 'Australia',
   },
   hours: 'Flexible scheduling · after-hours, early-morning & weekend cleaning',

@@ -32,7 +32,7 @@ export const images = {
     'office-cleaning': 'photo-1581578731548-c64695cc6952',
     'builders-handover-cleaning': 'photo-1600585154340-be6161a56a0c',
     'end-of-lease-cleaning': 'photo-1560448204-e02f11c3d0e2',
-    'strata-cleaning': 'photo-1600566753086-00f18fb6b3ea',
+    'strata-cleaning': 'photo-1545324418-cc1a3fa10c00',
     'airbnb-cleaning': 'photo-1560185007-cde436f6a4d0',
     'childcare-cleaning': 'photo-1503676260728-1c00da094a0b',
   },

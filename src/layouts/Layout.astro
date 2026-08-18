@@ -58,8 +58,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         areaServed: 'AU',
         address: {
           '@type': 'PostalAddress',
-          streetAddress: company.address.line1,
-          addressLocality: company.address.line2,
+          addressLocality: 'Tarneit',
+          addressRegion: 'VIC',
+          postalCode: '3029',
           addressCountry: 'AU',
         },
       })}
