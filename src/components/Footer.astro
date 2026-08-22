@@ -113,7 +113,10 @@ const year = new Date().getFullYear();
     <div
       class="mt-10 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-sand-100/50"
     >
-      <p>© {year} {company.legalName}.{company.abn ? ` ${company.abn}.` : ''} All rights reserved.</p>
+      <p>
+        © {year} {company.legalName}.{company.abn ? ` ${company.abn}.` : ''} All rights reserved. ·
+        <a href={link('/privacy-policy')} class="hover:text-lime-accent-400 underline underline-offset-2">Privacy Policy</a>
+      </p>
       <p class="flex items-center gap-2">
         <Icon name="check" class="w-4 h-4 text-lime-accent-400" />
         Australian owned &amp; operated

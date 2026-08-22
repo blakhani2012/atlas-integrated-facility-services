@@ -146,6 +146,13 @@ h4 {
   }
 }
 
+/* Lift floating action buttons above the cookie notice on small screens */
+@media (max-width: 640px) {
+  body.cookie-open .fab-stack {
+    bottom: 7.5rem;
+  }
+}
+
 /* Card hover lift */
 .card-lift {
   transition:
