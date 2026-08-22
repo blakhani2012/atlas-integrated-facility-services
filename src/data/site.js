@@ -11,6 +11,7 @@ export const company = {
   tagline: 'Reliable commercial cleaning, managed properly.',
   phone: '+61 402 986 444',
   phoneHref: 'tel:+61402986444',
+  whatsappHref: 'https://wa.me/61402986444',
   email: 'info@atlasifs.com.au',
   emailHref: 'mailto:info@atlasifs.com.au',
   abn: '', // TODO: add ABN when the client provides it

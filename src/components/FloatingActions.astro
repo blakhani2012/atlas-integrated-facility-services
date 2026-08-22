@@ -1,0 +1,41 @@
+---
+import { company } from '../data/site.js';
+import Icon from './Icon.astro';
+
+/**
+ * Floating quick-contact buttons (Call · WhatsApp · Email).
+ * Bottom-left so it never overlaps the Zoho SalesIQ chat bubble (bottom-right).
+ * Each button reveals a label on hover/focus on larger screens.
+ */
+const actions = [
+  { label: 'Call us', href: company.phoneHref, icon: 'phone', bg: 'bg-forest-600 hover:bg-forest-700', ext: false },
+  { label: 'WhatsApp', href: company.whatsappHref, icon: 'whatsapp', bg: 'bg-[#25D366] hover:bg-[#20bd5a]', ext: true },
+  { label: 'Email us', href: company.emailHref, icon: 'mail', bg: 'bg-lime-accent-600 hover:bg-lime-accent-500', ext: false },
+];
+---
+
+<div class="fixed left-4 bottom-4 sm:left-6 sm:bottom-6 z-40 flex flex-col gap-3">
+  {
+    actions.map((a) => (
+      <a
+        href={a.href}
+        aria-label={a.label}
+        title={a.label}
+        target={a.ext ? '_blank' : undefined}
+        rel={a.ext ? 'noopener noreferrer' : undefined}
+        class={`group/fab relative flex items-center justify-center w-12 h-12 sm:w-13 sm:h-13 rounded-full text-white shadow-lg shadow-forest-900/25 ring-1 ring-black/5 transition-all duration-300 hover:scale-105 ${a.bg}`}
+      >
+        {a.icon === 'whatsapp' ? (
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.004c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 1.8c2.17 0 4.21.85 5.75 2.38a8.06 8.06 0 0 1 2.38 5.73c0 4.48-3.65 8.12-8.13 8.12a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3.12.82.83-3.04-.19-.31a8.03 8.03 0 0 1-1.24-4.29c0-4.48 3.65-8.12 8.13-8.12zm4.68 10.24c-.26-.13-1.52-.75-1.75-.83-.24-.09-.41-.13-.58.13-.17.26-.67.83-.82 1-.15.17-.3.19-.56.06-.26-.13-1.09-.4-2.07-1.28-.77-.68-1.28-1.53-1.43-1.79-.15-.26-.02-.4.11-.53.12-.12.26-.3.39-.46.13-.15.17-.26.26-.43.09-.17.04-.32-.02-.45-.06-.13-.58-1.4-.8-1.92-.21-.5-.42-.43-.58-.44l-.5-.01c-.17 0-.45.06-.68.32-.24.26-.9.88-.9 2.15 0 1.27.92 2.49 1.05 2.66.13.17 1.82 2.78 4.41 3.9.62.27 1.1.43 1.47.55.62.2 1.18.17 1.62.1.5-.07 1.52-.62 1.74-1.22.21-.6.21-1.11.15-1.22-.06-.11-.24-.17-.5-.3z" />
+          </svg>
+        ) : (
+          <Icon name={a.icon} class="w-6 h-6" />
+        )}
+        <span class="pointer-events-none absolute left-full ml-3 whitespace-nowrap rounded-full bg-forest-900 px-3 py-1.5 text-xs font-600 text-white opacity-0 translate-x-1 transition-all duration-200 group-hover/fab:opacity-100 group-hover/fab:translate-x-0 hidden sm:block">
+          {a.label}
+        </span>
+      </a>
+    ))
+  }
+</div>

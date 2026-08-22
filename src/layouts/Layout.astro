@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import FloatingActions from '../components/FloatingActions.astro';
 import { company } from '../data/site.js';
 
 interface Props {
@@ -78,6 +79,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       <slot />
     </main>
     <Footer />
+    <FloatingActions />
 
     <!-- Progressive scroll-reveal enhancement -->
     <script>
@@ -101,5 +103,16 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
         els.forEach((el) => el.classList.add('is-visible'));
       }
     </script>
+
+    <!-- Zoho SalesIQ live chat (loads on every page) -->
+    <script is:inline>
+      window.$zoho = window.$zoho || {};
+      $zoho.salesiq = $zoho.salesiq || { ready: function () {} };
+    </script>
+    <script
+      is:inline
+      id="zsiqscript"
+      src="https://salesiq.zohopublic.com.au/widget?wc=918375fe65c508a48303f055af82aad5a35f8e431fa95ec8a3c5b52ed8c03fbf"
+      defer></script>
   </body>
 </html>
